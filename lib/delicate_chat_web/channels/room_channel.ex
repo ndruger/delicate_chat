@@ -9,7 +9,7 @@ defmodule DelicateChatWeb.RoomChannel do
     {:ok, socket2}
   end
 
-  # Anti-Pattern 3: Let it crashの誤解。他のメッセージ内容をハンドルせずにサーバとして「正常系」でもcrashさせる。
+  # Anti-Pattern: Let it crashの誤解。他のメッセージ内容をハンドルせずにサーバとして「正常系」でもcrashさせる。
   def handle_in("new:msg", %{"type" => "text", "body" => body}, %Phoenix.Socket{assigns: %{name: name}} = socket) do
     DelicateChat.ViolenceTextdJudgement.judge(name, body)
     broadcast!(socket, "new_msg", %{name: name, type: "text", body: body})
