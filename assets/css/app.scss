@@ -39,27 +39,37 @@ html, body {
   overflow: scroll;
   flex: 1;
   padding: 15px;
-}
-
-.message-list-pad {
-  height: 100vh;
+  .message-list-pad {
+    height: 100vh;
+  }
 }
 
 .message {
-  border-top: solid 1px #aaa;
-  .message-name {
-    font-weight: bold;
+  border-top: solid 2px #aaa;
+  .message-header {
+    .message-name {
+      font-weight: bold;
+    }
+    .message-type {
+      margin-left: 10px;
+      color: #5a5;      
+    }
   }
-  .message-body-text {
+  .message-body {
     white-space: pre;
+  }
+  .message-body-xml {
+    border: solid 2px #ccc;
+    padding: 2px;
+    border-radius: 5px;    
   }
 }
 
 .operation-box {
-  border-top: solid 1px #aaa;
+  border-top: solid 2px #aaa;
   padding: 15px;
+  .operation-type {
+    width: 180px;
+  }
 }
 
-.operation-type {
-  width: 180px;
-}

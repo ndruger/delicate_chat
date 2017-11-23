@@ -1,4 +1,10 @@
+import {pd} from 'pretty-data';
+
 export function load(chan) {
+  // $('.operation-type').change(() => {
+  //   debugger;
+  // });
+
   $('.operation-textarea').keyup((e) => {
     if (e.keyCode == 13 && !e.shiftKey) {
       const msg = {
@@ -16,11 +22,13 @@ function createTextBody(body) {
   return $('<div class="message-body message-body-text">').text(body);
 }
 
+console.log(pd.xml("<neko>neko</neko>"));
+
 function createXmlBody(body) {
-  return  $('<div class="message-body message-body-xml">').text(body);
+  return  $('<div class="message-body message-body-xml">').text(pd.xml(body));
 }
 
-function createBody({type, body}) {
+function createBodyEl({type, body}) {
   switch(type) {
   case 'text':
     return createTextBody(body);
@@ -31,9 +39,12 @@ function createBody({type, body}) {
 
 export function showMessage({name, type, body}) {
   const $msg = $('<div class="message">');
-  const $name = $('<div class="message-name">').text(name);
-  const $body = createBody({type, body});
-  $msg.append([$name, $body]);
+  const $header = $('<div class="message-header">');
+  const $name = $('<span class="message-name">').text(name);
+  const $type = $('<span class="message-type">').text(type);
+  $header.append([$name, $type]);
+  const $body = createBodyEl({type, body});
+  $msg.append([$header, $body]);
   $('.message-list').append($msg);
   $('.message-list-container').scrollTop($('.message-list-container')[0].scrollHeight);
 }
