@@ -1,36 +1,24 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
-
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+<div class="notification-bar">bar</div>
+<div class="client-container">
+  <div class="side-bar">side</div>
+  <div class="client-main">
+    <div class="message-list-container">
+      <div class="message-list-pad"></div>
+      <div class="message-list"></div>
+    </div>
+    <div class="operation-box">
+        <form class="message-form">
+          <div class="form-group">
+            <select class="form-control operation-type">
+              <option>プレーンテキスト</option>
+              <option>XML</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea type="text" class="operation-textarea form-control" placeholder="Message here!"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

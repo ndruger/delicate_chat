@@ -1,0 +1,58 @@
+html, body {
+  height: 100%;
+}
+
+.client-base {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.header {
+}
+
+.client-container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  background-color: red;
+}
+
+.side-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  flex-shrink: 0;
+  background-color: #BD894B;
+  padding: 15px;
+}
+
+.client-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #ffff00;
+}
+
+.message-list-container {
+  overflow: scroll;
+  flex: 1;
+  background-color: #ff00ff;
+  padding: 15px;
+}
+
+.message-list-pad {
+  height: 100vh;
+}
+
+.operation-box {
+  background-color: #00ffff;
+  padding: 15px;
+}
+
+.operation-type {
+  width: 180px;
+}

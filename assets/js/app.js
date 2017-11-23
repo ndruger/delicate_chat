@@ -1,21 +1,53 @@
-// Brunch automatically concatenates all files in your
-// watched paths. Those paths can be configured at
-// config.paths.watched in "brunch-config.js".
-//
-// However, those files will only be executed if
-// explicitly imported. The only exception are files
-// in vendor, which are never wrapped in imports and
-// therefore are always executed.
+import 'phoenix_html'
+import {Socket} from 'phoenix'
 
-// Import dependencies
-//
-// If you no longer want to use a dependency, remember
-// to also remove its path from "config.paths.watched".
-import "phoenix_html"
+$(() => {
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
+  function showMessage({body}) {
+    const $el = $('<div class="message-continer">');
+    $el.text(body);
+    $('.message-list').append($el);
+    $('.message-list-container').scrollTop($('.message-list-container')[0].scrollHeight)
+  }
 
-// import socket from "./socket"
+  const socket = new Socket('/socket', {
+    params: {token: window.userToken},
+    logger: ((kind, msg, data) => {
+      console.log(`${kind}: ${msg}`, data);
+    })
+  });
+
+  socket.connect();
+  const chan = socket.channel('room:chat', {});
+
+  chan.join().receive('ok', () => {
+    console.log('joined');
+    // chan.push('reset', {});
+
+    chan.on('new_msg', (msg) => {
+      showMessage(msg)
+    });
+
+    // chan.on('processes', ({processes, atomMemory}: {processes: Array<Object>, atomMemory: number}) => {
+    //   const atomMemoryPercent = atomMemory / 51658249 * 30;
+    //   $('.atom-memory-bar').css({width: `${atomMemoryPercent}%`});
+    //   const safeProcesses = _.map(processes, (process) => {
+    //     return {
+    //       ...process,
+    //       id: Pid.toSafe(process.id),
+    //       links: _.map(process.links, (id) => Pid.toSafe(id)),
+    //     };
+    //   });
+    //   world.updateEnemies(safeProcesses);
+    // });
+  });
+
+  console.log('neko')
+  $('.operation-textarea').keyup((e) => {
+    if (e.keyCode == 13 && !e.shiftKey) {
+      chan.push('new:msg', {name: 'nobody', body: $('.operation-textarea').val()});
+      $('.operation-textarea').val('');
+      // $('.message-form').submit();
+    }
+  });
+});

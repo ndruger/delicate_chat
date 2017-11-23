@@ -2,7 +2,7 @@ defmodule DelicateChatWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", DelicateChatWeb.RoomChannel
+  channel "room:*", DelicateChatWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

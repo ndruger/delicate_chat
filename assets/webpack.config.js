@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     app: [
       './js/app.js',
-      './css/app.css',
+      './css/app.scss',
     ],
   },
   output: {
@@ -17,13 +17,20 @@ module.exports = {
   externals: {
     jquery: 'jQuery',
   },
-  // resolve: {
-  //   root: __dirname + '/js',
-  // }
-  // module: {
-  //   loaders: [
-  //     {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-  //     {test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader']},
-  //   ],
-  // }
+  module: {
+    rules: [{
+      test: /\.scss$/,
+      use: [
+        {
+          loader: "style-loader"
+        },
+        {
+          loader: "css-loader"
+        },
+        {
+          loader: "sass-loader"
+        }
+      ]
+    }]
+  }
 };
