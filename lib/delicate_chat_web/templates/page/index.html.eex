@@ -8,10 +8,10 @@
     </div>
     <div class="operation-box">
         <form class="message-form">
-          <div class="form-group">
+          <div class="form-group" class="operation-type">
             <select class="form-control operation-type">
-              <option>プレーンテキスト</option>
-              <option>XML</option>
+              <option value="text">プレーンテキスト</option>
+              <option value="xml">XML</option>
             </select>
           </div>
           <div class="form-group">

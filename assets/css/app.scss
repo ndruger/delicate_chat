@@ -16,7 +16,6 @@ html, body {
   display: flex;
   flex-grow: 1;
   overflow: hidden;
-  background-color: red;
 }
 
 .side-bar {
@@ -25,7 +24,7 @@ html, body {
   flex-direction: column;
   flex-basis: 300px;
   flex-shrink: 0;
-  background-color: #BD894B;
+  background-color: #9d899b;
   padding: 15px;
 }
 
@@ -34,13 +33,11 @@ html, body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: #ffff00;
 }
 
 .message-list-container {
   overflow: scroll;
   flex: 1;
-  background-color: #ff00ff;
   padding: 15px;
 }
 
@@ -48,8 +45,18 @@ html, body {
   height: 100vh;
 }
 
+.message {
+  border-top: solid 1px #aaa;
+  .message-name {
+    font-weight: bold;
+  }
+  .message-body-text {
+    white-space: pre;
+  }
+}
+
 .operation-box {
-  background-color: #00ffff;
+  border-top: solid 1px #aaa;
   padding: 15px;
 }
 
