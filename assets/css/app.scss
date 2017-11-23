@@ -26,6 +26,10 @@ html, body {
   flex-shrink: 0;
   background-color: #9d899b;
   padding: 15px;
+  .system-metrics {
+    font-size: large;
+    font-weight: bold;    
+  }
 }
 
 .client-main {
@@ -46,9 +50,13 @@ html, body {
 
 .message {
   border-top: solid 2px #aaa;
+  padding: 8px;
   .message-header {
     .message-name {
       font-weight: bold;
+      &.message-name-system {
+        color: red;
+      }
     }
     .message-type {
       margin-left: 10px;

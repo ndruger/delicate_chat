@@ -1,6 +1,8 @@
 <div class="notification-bar">bar</div>
 <div class="client-container">
-  <div class="side-bar">side</div>
+  <div class="side-bar">
+    <div class="system-metrics"></div>
+  </div>
   <div class="client-main">
     <div class="message-list-container">
       <div class="message-list-pad"></div>

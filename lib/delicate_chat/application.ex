@@ -11,7 +11,8 @@ defmodule DelicateChat.Application do
       # Start the endpoint when the application starts
       supervisor(DelicateChatWeb.Endpoint, []),
       # Start your own worker by calling: DelicateChat.Worker.start_link(arg1, arg2, arg3)
-      # worker(DelicateChat.Worker, [arg1, arg2, arg3]),
+      worker(DelicateChat.MetricsNotifier, []),
+      worker(DelicateChat.ViolenceTextdJudgement, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

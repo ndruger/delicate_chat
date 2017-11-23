@@ -3,6 +3,7 @@
     "css-loader": "^0.28.7",
     "eslint": "^4.11.0",
     "install": "^0.10.2",
+    "lodash": "^4.17.4",
     "node-sass": "^4.7.2",
     "pretty-data": "^0.40.0",
     "sass-loader": "^6.0.6",

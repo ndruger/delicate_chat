@@ -6,9 +6,9 @@ $(() => {
 
   const socket = new Socket('/socket', {
     params: {token: window.userToken},
-    logger: ((kind, msg, data) => {
-      console.log(`${kind}: ${msg}`, data);
-    })
+    // logger: ((kind, msg, data) => {
+    //   console.log(`${kind}: ${msg}`, data);
+    // })
   });
 
   socket.connect();
@@ -21,6 +21,10 @@ $(() => {
 
     chan.on('new_msg', (msg) => {
       ui.showMessage(msg);
+    });
+
+    chan.on('system', (msg) => {
+      ui.showSystemMessage(msg);
     });
   });
 });
