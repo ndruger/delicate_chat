@@ -7,11 +7,13 @@ defmodule DelicateChat.MetricsNotifier do
     GenServer.start_link(__MODULE__, [])
   end
 
+  @impl true
   def init(_) do
     Process.send_after(self(), :notify, @interval)
     {:ok, []}
   end
 
+  @impl true
   def handle_info(:notify, state) do
     notify()
     Process.send_after(self(), :notify, @interval)

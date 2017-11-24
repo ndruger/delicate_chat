@@ -12,6 +12,7 @@ defmodule DelicateChat.ViolenceTextdJudgement do
     GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   end
 
+  @impl true
   def init(_) do
     {:ok, []}
   end
@@ -21,6 +22,7 @@ defmodule DelicateChat.ViolenceTextdJudgement do
     GenServer.cast(__MODULE__, {:judge, name, text})
   end
 
+  @impl true
   def handle_cast({:judge, name, text}, state) do
     # 今は暫定実装なので少しばかりシンプルだが、実際は誤検知をしないように非常に高度に考えられた処理になるので、2秒ぐらいかかるとしておく。
     Process.sleep(5_000)
