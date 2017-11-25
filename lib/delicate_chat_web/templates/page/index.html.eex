@@ -9,17 +9,23 @@
       <div class="message-list"></div>
     </div>
     <div class="operation-box">
-        <form class="message-form">
-          <div class="form-group" class="operation-type">
-            <select class="form-control operation-type">
-              <option value="text">プレーンテキスト</option>
-              <option value="xml">XML</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea type="text" class="operation-textarea form-control" placeholder="Message here!"></textarea>
-          </div>
-        </form>
+      <form class="opeartion-message-form">
+        <div class="form-group" class="operation-type">
+          <select class="form-control operation-type">
+            <option value="text">プレーンテキスト</option>
+            <option value="xml">XML</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea type="text" class="operation-textarea form-control" placeholder="Message here!"></textarea>
+        </div>
+      </form>
+      <div class="opeartion-trouble">
+        <div class="operation-button-group btn-group-vertical">
+          <button class="xml-text-senario btn btn-default">XMLメッセージの継続送信</button>
+          <button class="small-plain-text-senario btn btn-default">テキストメッセージの継続送信(64Byteより小さいメッセージ)</button>
+          <button class="large-plain-text-senario btn btn-default">テキストメッセージの継続送信(64Byte以上のメッセージ)</button>
+        </div>
       </div>
     </div>
   </div>

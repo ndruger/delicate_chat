@@ -1,6 +1,14 @@
 html, body {
   height: 100%;
-  font-size: large; // for demo
+  font-size: large
+}
+
+textarea.form-control {
+  font-size: large
+}
+
+select.form-control {
+  font-size: large
 }
 
 .client-base {
@@ -8,9 +16,6 @@ html, body {
   flex-direction: column;
   flex-grow: 1;
   height: 100%;
-}
-
-.header {
 }
 
 .client-container {
@@ -30,8 +35,7 @@ html, body {
   flex-shrink: 0;
   padding: 15px;
   .system-metrics {
-    font-size: 18pt;  // for demo
-    // font-size: large;
+    font-size: 18pt;
   }
   .metrics-group {
     background-color: rgba(255, 255, 255, 0.2);
@@ -96,8 +100,19 @@ html, body {
 .operation-box {
   border-top: solid 2px #aaa;
   padding: 15px;
-  .operation-type {
-    width: 180px;
+  display: flex;
+  .opeartion-message-form {
+    flex-grow: 1;
+    .operation-type {
+      width: 180px;
+    }
+  }
+  .opeartion-trouble {
+    padding: 10px;
+    flex-basis: 440px;
+    .operation-button-group {
+      float: right;
+    }
   }
 }
 
