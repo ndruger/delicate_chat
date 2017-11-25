@@ -10,8 +10,10 @@ defmodule DelicateChat.Metrics do
 
   defp total_message_queue_len() do
     Enum.reduce(Process.list(), 0, fn p, acc ->
-      {_, len} = Process.info(p, :message_queue_len)
-      acc + len
+      case Process.info(p, :message_queue_len) do
+        {_, len} -> acc + len
+        nil -> acc
+      end
     end)
   end
 

@@ -26,9 +26,6 @@ defmodule DelicateChat.ViolenceTextJudgement do
   def handle_cast({:judge, name, text}, state) do
     # 今は暫定実装なので少しばかりシンプルだが、実際は誤検知をしないように非常に高度に考えられた処理になるので、2秒ぐらいかかるとしておく。
     Process.sleep(5_000)
-    if String.contains?(text, "nekoneko") do
-      k = 1 + "neko"
-    end
     if String.contains?(text, @violence_words) do  # this algorithm is inspired by twitter!
       notify(name)
     end
