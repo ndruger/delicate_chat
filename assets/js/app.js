@@ -20,11 +20,11 @@ $(() => {
     console.log('joined');
 
     chan.on('new_msg', (msg) => {
-      ui.showMessage(msg);
+      ui.showMsg(msg);
     });
 
     chan.on('system', (msg) => {
-      ui.showSystemMessage(msg);
+      ui.showSystemMsg(msg);
     });
   });
 });

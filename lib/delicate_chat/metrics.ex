@@ -17,8 +17,10 @@ defmodule DelicateChat.Metrics do
   end
 
   def get() do
-    memory()
-    |> Map.put(:total_message_queue_len, total_message_queue_len())
-    |> Map.merge(system())
+    %{
+      "process.list" => %{total_message_queue_len: total_message_queue_len()},
+      "erlang.memroy" => memory(),
+      "erlang.system_info" => system(),
+    }
   end
 end
