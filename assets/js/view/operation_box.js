@@ -3,7 +3,7 @@ import _ from 'lodash';
 const senarioInterval = 10;
 
 function randomAlphaStr(len) {
-  return _.times(len, () => (10 + _.random(25)).toString(36)).join('')  
+  return _.times(len, () => (10 + _.random(25)).toString(36)).join('') ;
 }
 
 export function load(chan) {
@@ -26,8 +26,8 @@ export function load(chan) {
 
   $('.xml-text-senario').click(() => {
     function generateXml() {
-      const body = _.map(_.times(1000), () => {
-        const tag = randomAlphaStr(40);
+      const body = _.map(_.times(3000), () => {
+        const tag = randomAlphaStr(10);
         return `<${tag}>a</${tag}>`;
       }).join();
       const start = '<msg>';
