@@ -16,10 +16,10 @@ defmodule DelicateChatWeb.RoomChannel do
   end
   def handle_in("new:msg", %{"type" => "xml", "body" => body}, %Phoenix.Socket{assigns: %{name: name}} = socket) do
     # XMLはサーバサイドでチェックしてXMLとしてXMLとして有効かどうかを付加する。
-    case DelicateChat.XmlValidator.is_valid?(body) do
-      true  -> broadcast!(socket, "new_msg", %{name: name, type: "xml", body: body})
-      false -> broadcast!(socket, "new_msg", %{name: "system", type: "text", body: "#{name} による不正なXMLはフィルターされました。"})
-    end
+    broadcast!(socket, "new_msg", %{name: name, type: "xml", body: body, meta: %{"isValid" => DelicateChat.XmlValidator.is_valid?(body)}})
+    {:noreply, socket}
+  end
+  def handle_in("new:msg", _, socket) do
     {:noreply, socket}
   end
 end
