@@ -18,9 +18,9 @@ defmodule DelicateChat.Metrics do
 
   def get() do
     %{
-      "process.list" => %{total_message_queue_len: total_message_queue_len()},
-      "erlang.memroy" => memory(),
-      "erlang.system_info" => system(),
+      "Process.list/0 && Process.info/2" => %{total_message_queue_len: total_message_queue_len()},
+      ":erlang.memroy/0" => memory(),
+      ":erlang.system_info/1" => system(),
     }
   end
 end
