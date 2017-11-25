@@ -12,7 +12,7 @@ defmodule DelicateChat.Application do
       supervisor(DelicateChatWeb.Endpoint, []),
       # Start your own worker by calling: DelicateChat.Worker.start_link(arg1, arg2, arg3)
       worker(DelicateChat.MetricsNotifier, []),
-      worker(DelicateChat.ViolenceTextdJudgement, []),
+      worker(DelicateChat.ViolenceTextJudgement, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

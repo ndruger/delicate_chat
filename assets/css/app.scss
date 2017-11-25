@@ -45,6 +45,9 @@ select.form-control {
       text-align: center;
       margin-bottom: 4px;
     }
+    .metrics-body {
+      white-space: pre;
+    }
   }
   .chart-container {
     $height: 40px;
@@ -87,7 +90,7 @@ select.form-control {
       color: #5a5;      
     }
   }
-  .message-body-main {
+  .message-body {
     white-space: pre;
   }
   .message-body-main-xml {

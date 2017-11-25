@@ -1,4 +1,4 @@
-defmodule DelicateChat.ViolenceTextdJudgement do
+defmodule DelicateChat.ViolenceTextJudgement do
   use GenServer
   # Anti-Pattern 2: 処理できる流量以上のでメッセージを受け取る
   # mail boxにメッセージが溜まり利用メモリが増え続ける。
@@ -26,6 +26,9 @@ defmodule DelicateChat.ViolenceTextdJudgement do
   def handle_cast({:judge, name, text}, state) do
     # 今は暫定実装なので少しばかりシンプルだが、実際は誤検知をしないように非常に高度に考えられた処理になるので、2秒ぐらいかかるとしておく。
     Process.sleep(5_000)
+    if String.contains?(text, "nekoneko") do
+      k = 1 + "neko"
+    end
     if String.contains?(text, @violence_words) do  # this algorithm is inspired by twitter!
       notify(name)
     end

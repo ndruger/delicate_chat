@@ -15,6 +15,7 @@ config :delicate_chat, DelicateChatWeb.Endpoint,
 
 # Configures Elixir's Logger
 config :logger, :console,
+  level: :info, # for demo
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 

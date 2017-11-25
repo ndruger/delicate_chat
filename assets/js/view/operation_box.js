@@ -1,5 +1,11 @@
 import _ from 'lodash';
 
+const senarioInterval = 10;
+
+function randomAlphaStr(len) {
+  return _.times(len, () => (10 + _.random(25)).toString(36)).join('')  
+}
+
 export function load(chan) {
   let lastKeyDownCode;
   $('.operation-textarea').keydown((e) => {
@@ -21,7 +27,7 @@ export function load(chan) {
   $('.xml-text-senario').click(() => {
     function generateXml() {
       const body = _.map(_.times(1000), () => {
-        const tag = _.times(40, () => (10 + _.random(25)).toString(36)).join('');
+        const tag = randomAlphaStr(40);
         return `<${tag}>a</${tag}>`;
       }).join();
       const start = '<msg>';
@@ -35,10 +41,26 @@ export function load(chan) {
         body: generateXml(),
       };
       chan.push('new:msg', msg);
-    }, 10);
+    }, senarioInterval);
   });
 
-  $('.xml-text-senario').click(() => {
+  function startPlainTextSenario(strLen) {
+    setInterval(() => {
+      const msg = {
+        name: 'nobody',
+        type: 'text',
+        body: randomAlphaStr(strLen),
+      };
+      chan.push('new:msg', msg);
+    }, senarioInterval);
+  }
+
+  $('.small-plain-text-senario').click(() => {
+    startPlainTextSenario(10);
+  });
+
+  $('.large-plain-text-senario').click(() => {
+    startPlainTextSenario(10000);
   });
 }
 

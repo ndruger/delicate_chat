@@ -1,6 +1,6 @@
 # DelicateChat(α)
 
-Elixirのアンチーパターンとそれで発生する障害時のErlangVMの状態を体験するためのWebチャット
+Elixirのアンチーパターンとそれで発生する問題時のErlangVMの状態を体験するためのWebチャット
 
 ## 発表スライドへのリンク(TODO)
 

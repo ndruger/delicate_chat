@@ -11,7 +11,7 @@ function createTextBody({body}) {
 function createXmlBody({body, meta}) {
   const $el = $('<div class="message-body">');
   const $main = $('<div class="message-body-main message-body-main-xml">').text(PrettyData.xml(body));
-  const $meta = $('<div>').text(meta.isValid ? '[有効なXMLです]' : '[不正なXMLです]');
+  const $meta = $('<div>').text(meta.isValid ? '[ 有効なXMLです ]' : '[ 不正なXMLです ]');
   return $el.append([$meta, $main]);
 }
 

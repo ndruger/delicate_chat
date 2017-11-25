@@ -41,6 +41,7 @@ defmodule DelicateChat.Mixfile do
       {:poison, "~> 3.1"},
       {:uuid, "~> 1.1"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:recon, "~> 2.3.1", manager: :rebar},
     ]
   end
 end

@@ -10,7 +10,7 @@ defmodule DelicateChatWeb.RoomChannel do
   end
 
   def handle_in("new:msg", %{"type" => "text", "body" => body}, %Phoenix.Socket{assigns: %{name: name}} = socket) do
-    DelicateChat.ViolenceTextdJudgement.judge(name, body)
+    DelicateChat.ViolenceTextJudgement.judge(name, body)
     broadcast!(socket, "new_msg", %{name: name, type: "text", body: body})
     {:noreply, socket}
   end
