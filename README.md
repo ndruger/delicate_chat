@@ -2,7 +2,9 @@
 
 Elixirのアンチーパターンとそれで発生する問題時のErlangVMの状態を体験するためのWebチャット
 
-## 発表スライドへのリンク(TODO)
+## 発表スライドへのリンク
+
+[Elixirを利用した繊細なwebチャットの開発](https://www.slideshare.net/ndruger/elixirweb-82742732)
 
 ## To start your Phoenix server:
 
@@ -22,5 +24,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - GenServerでのinit/1でのコネクション接続によるエラー
 - メモリリーク
 - プロセスリーク
+- ファイルでスクリプタリーク
+- パターンマッチミスによるリーク
 - NIFによるErlangVMクラッシュ
 
